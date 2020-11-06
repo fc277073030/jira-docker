@@ -27,11 +27,13 @@ services:
         max-file: "50"
 
   postgresql:
-    image: postgres:13.0-alpine
+    image: postgres:11-alpine
     networks:
       - jiranet
     volumes:
       - postgresqldata:/var/lib/postgresql/data
+    ports:
+        - '5432:5432'
     environment:
       - 'POSTGRES_USER=jira'
       # CHANGE THE PASSWORD!
